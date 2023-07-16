@@ -6,6 +6,7 @@ import { fetchContacts } from 'redux/contacts/operations';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import ContactList from 'components/ContactList/ContactList';
+import css from './Contacts.module.css';
 
 const Contacts = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -17,10 +18,10 @@ const Contacts = () => {
   }, [dispatch]);
 
   return (
-    <div className="app">
-      <h1>Phonebook</h1>
+    <div className="container">
+      <h1 className={css.h}>Phonebook</h1>
       <ContactForm />
-      <h2>Contacts</h2>
+      <h2 className={css.h}>Contacts</h2>
       <Filter />
       <ContactList />
       {isLoading && !error && <b>Request in progress...</b>}

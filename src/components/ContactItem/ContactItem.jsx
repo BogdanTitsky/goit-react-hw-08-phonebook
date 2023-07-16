@@ -12,7 +12,7 @@ export const ContactItem = ({ contact }) => {
       <p>
         {contact.name}: {contact.phone}
       </p>
-      <button type="button" onClick={handleDelete}>
+      <button className="button" type="button" onClick={handleDelete}>
         Delete
       </button>
     </li>

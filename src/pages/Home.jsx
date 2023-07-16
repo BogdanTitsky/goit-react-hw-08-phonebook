@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div>
+    <div className="container">
       <h1>
         Contacts book welcome page
         <span role="img" aria-label="Greeting icon">

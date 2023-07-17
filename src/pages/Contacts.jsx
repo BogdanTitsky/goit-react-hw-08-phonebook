@@ -17,14 +17,16 @@ const Contacts = () => {
   }, [dispatch]);
 
   return (
-    <div className="container">
-      <h1 className="h">Phonebook</h1>
-      <ContactForm />
-      <h2 className="h">Contacts</h2>
-      <Filter />
-      <ContactList />
-      {isLoading && !error && <b>Request in progress...</b>}
-    </div>
+    <section>
+      <div className="container container-content">
+        <h1 className="h">Phonebook</h1>
+        <ContactForm />
+        <h2 className="h">Contacts</h2>
+        <Filter />
+        <ContactList />
+        {isLoading && !error && <b>Request in progress...</b>}
+      </div>
+    </section>
   );
 };
 

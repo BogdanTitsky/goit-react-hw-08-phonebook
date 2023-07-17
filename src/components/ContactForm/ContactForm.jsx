@@ -9,13 +9,16 @@ export const ContactForm = () => {
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-  const isExistingContact = contacts.some(
+  const isExistingName = contacts.some(
     contact => contact.name.toLowerCase() === name.toLowerCase()
   );
+  const isExistingNumber = contacts.some(contact => contact.number === number);
   const handleSubmit = e => {
     e.preventDefault();
-    if (isExistingContact) {
-      return alert(`${name} is already in contact`);
+    if (isExistingName) {
+      return alert(`Contact with name ${name} is already in contact`);
+    } else if (isExistingNumber) {
+      return alert(`Number ${number} is already in contact`);
     }
     dispatch(addContact({ name, number }));
     setName('');

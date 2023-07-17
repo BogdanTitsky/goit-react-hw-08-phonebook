@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div className="container">
-      <h1>
+      <h1 className="h">
         Contacts book welcome page
         <span role="img" aria-label="Greeting icon">
           💁‍♀️

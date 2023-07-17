@@ -5,10 +5,11 @@ import { selectUser } from 'redux/auth/selectors';
 
 const UserMenu = () => {
   const dispatch = useDispatch();
-  const { email } = useSelector(selectUser);
+  const { email, name } = useSelector(selectUser);
 
   return (
     <div className={css.wrapper}>
+      <p className={css.username}>User: {name}</p>
       <p className={css.username}>{email}</p>
       <button
         type="button"

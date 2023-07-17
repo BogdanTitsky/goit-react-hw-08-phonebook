@@ -7,5 +7,5 @@ export default function PrivateRoute() {
   const isRefreshing = useSelector(selectIsRefreshing);
   const shouldRedirect = !isLoggedIn && !isRefreshing;
 
-  return shouldRedirect ? <Navigate to={'/'} replace /> : <Outlet />;
+  return shouldRedirect ? <Navigate to={'/login'} replace /> : <Outlet />;
 }

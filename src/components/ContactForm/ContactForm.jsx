@@ -7,12 +7,16 @@ import { selectContacts } from 'redux/contacts/selectors';
 export const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
+
   const isExistingName = contacts.some(
     contact => contact.name.toLowerCase() === name.toLowerCase()
   );
+
   const isExistingNumber = contacts.some(contact => contact.number === number);
+
   const handleSubmit = e => {
     e.preventDefault();
     if (isExistingName) {
@@ -33,7 +37,13 @@ export const ContactForm = () => {
         setName(value);
         break;
       case 'number':
-        setNumber(value);
+        const digitsOnly = value.replace(/\D/g, '');
+        const truncatedNumber = digitsOnly.slice(0, 10);
+        const formattedNumber = truncatedNumber.replace(
+          /(\d{3})(\d{3})(\d{4})/,
+          '$1-$2-$3'
+        );
+        setNumber(formattedNumber);
         break;
       default:
         return;
@@ -47,7 +57,7 @@ export const ContactForm = () => {
         <input
           type="text"
           name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          pattern="[A-Za-zА-ЯЁІЇЄҐа-яёіїєґ\s]+"
           title="Name may contain only letters, apostrophe, dash, and spaces. For example: Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
           value={name}
@@ -59,8 +69,8 @@ export const ContactForm = () => {
         <input
           type="tel"
           name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          title="Phone number must be digits and must contain 10 numbers"
           required
           value={number}
           onChange={handleChange}

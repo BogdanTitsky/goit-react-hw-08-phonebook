@@ -1,3 +1,5 @@
+@import 'bootstrap';
+
 body {
   box-sizing: border-box;
   margin: 0;
@@ -32,16 +34,10 @@ p {
   margin: 0 auto;
 }
 
-.h {
-  text-align: center;
-}
-
 .container-content {
   padding-top: 30px;
-}
 
-@media screen and (min-width: 992px) {
-  .container-content {
+  @media screen and (min-width: 992px) {
     padding-top: 60px;
   }
 }

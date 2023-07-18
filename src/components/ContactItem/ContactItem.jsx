@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import css from './ContactItem.module.css';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
 
@@ -8,11 +7,23 @@ export const ContactItem = ({ contact }) => {
   const handleDelete = () => dispatch(deleteContact(contact.id));
 
   return (
-    <li className={css.item}>
-      <p>
-        {contact.name}: {contact.number}
-      </p>
-      <button className="button" type="button" onClick={handleDelete}>
+    <li className="d-flex justify-content-between align-items-center border-bottom border-black p-2 ">
+      <div className="d-flex align-items-center">
+        <img
+          src="http://placehold.it/40x40"
+          alt="error"
+          className="rounded-circle me-2"
+        />
+        <div>
+          <p className="m-0 fs-5 fw-semibold ">{contact.name}</p>
+          <p className="m-0 text-body-secondary">{contact.number}</p>
+        </div>
+      </div>
+      <button
+        className="btn btn-outline-dark"
+        type="button"
+        onClick={handleDelete}
+      >
         Delete
       </button>
     </li>

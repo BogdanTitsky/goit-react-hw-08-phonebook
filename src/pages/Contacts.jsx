@@ -6,6 +6,7 @@ import { fetchContacts } from 'redux/contacts/operations';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import ContactList from 'components/ContactList/ContactList';
+import { Loader } from 'components/Loader/Loader';
 
 const Contacts = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -17,15 +18,13 @@ const Contacts = () => {
   }, [dispatch]);
 
   return (
-    <section>
-      <div className="container container-content">
-        <h1 className="h">Phonebook</h1>
-        <ContactForm />
-        <h2 className="h">Contacts</h2>
-        <Filter />
-        <ContactList />
-        {isLoading && !error && <b>Request in progress...</b>}
-      </div>
+    <section className="container container-content">
+      <h1 className="text-center">Phonebook</h1>
+      <ContactForm />
+      <h2 className="text-center mt-3">Contacts</h2>
+      <Filter />
+
+      {isLoading && !error ? <Loader /> : <ContactList />}
     </section>
   );
 };

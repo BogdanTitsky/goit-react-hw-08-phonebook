@@ -1,13 +1,16 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
+import scss from './ContactItem.module.scss';
 
 export const ContactItem = ({ contact }) => {
   const dispatch = useDispatch();
   const handleDelete = () => dispatch(deleteContact(contact.id));
 
   return (
-    <li className="d-flex justify-content-between align-items-center border-bottom border-black p-2 ">
+    <li
+      className={`d-flex justify-content-between align-items-center p-2 ${scss.itemBorder}`}
+    >
       <div className="d-flex align-items-center">
         <img
           src="http://placehold.it/40x40"

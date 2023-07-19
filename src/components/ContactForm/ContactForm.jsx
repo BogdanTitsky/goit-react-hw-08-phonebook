@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import css from './ContactForm.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { addContact } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/selectors';
@@ -51,35 +50,48 @@ export const ContactForm = () => {
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit}>
-      <label>
-        <h2>Name</h2>
-        <input
-          type="text"
-          name="name"
-          pattern="[A-Za-zА-ЯЁІЇЄҐа-яёіїєґ\s]+"
-          title="Name may contain only letters, apostrophe, dash, and spaces. For example: Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-          value={name}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        <h2>Number</h2>
-        <input
-          type="tel"
-          name="number"
-          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-          title="Phone number must be digits and must contain 10 numbers"
-          required
-          value={number}
-          onChange={handleChange}
-        />
-      </label>
+    <div className="rounded border border-black pt-4 p-3 ps-5 pe-5">
+      <h1 className="text-center mb-4">Phonebook</h1>
 
-      <button type="submit" className="button">
-        Add contact
-      </button>
-    </form>
+      <form
+        className="d-flex flex-column align-items-center "
+        onSubmit={handleSubmit}
+      >
+        <div className="mb-2">
+          <label className="form-label ">
+            <h2 className="mb-1">Name</h2>
+            <input
+              type="text"
+              name="name"
+              pattern="[A-Za-zА-ЯЁІЇЄҐа-яёіїєґ\s]+"
+              title="Name may contain only letters, apostrophe, dash, and spaces. For example: Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+              required
+              value={name}
+              onChange={handleChange}
+              className="form-control"
+            />
+          </label>
+        </div>
+        <div className="mb-2">
+          <label className="form-label">
+            <h2 className="mb-1">Number</h2>
+            <input
+              type="tel"
+              name="number"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              title="Phone number must be digits and must contain 10 numbers"
+              required
+              value={number}
+              onChange={handleChange}
+              className="form-control"
+            />
+          </label>
+        </div>
+
+        <button type="submit" className="btn btn-outline-dark">
+          Add contact
+        </button>
+      </form>
+    </div>
   );
 };

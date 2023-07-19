@@ -19,12 +19,13 @@ const Contacts = () => {
 
   return (
     <section className="container container-content">
-      <h1 className="text-center">Phonebook</h1>
       <ContactForm />
-      <h2 className="text-center mt-3">Contacts</h2>
-      <Filter />
+      <div className="pt-3">
+        <h2 className="mb-2">My contacts</h2>
+        <Filter />
 
-      {isLoading && !error ? <Loader /> : <ContactList />}
+        {isLoading && !error ? <Loader /> : <ContactList />}
+      </div>
     </section>
   );
 };

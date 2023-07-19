@@ -1,0 +1,9 @@
+li {
+  &.itemBorder {
+    border-bottom: black 1px solid;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

@@ -18,16 +18,16 @@ export const ContactItem = ({ contact }) => {
           className="rounded-circle me-2"
         />
         <div>
-          <p className="m-0 fs-5 fw-semibold ">{contact.name}</p>
+          <p className="m-0 fs-5 fw-medium ">{contact.name}</p>
           <p className="m-0 text-body-secondary">{contact.number}</p>
         </div>
       </div>
       <button
-        className="btn btn-outline-dark"
+        className="btn btn-outline-dark rounded-3"
         type="button"
         onClick={handleDelete}
       >
-        Delete
+        DELETE
       </button>
     </li>
   );

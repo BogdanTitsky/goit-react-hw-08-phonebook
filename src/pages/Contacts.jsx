@@ -18,13 +18,19 @@ const Contacts = () => {
   }, [dispatch]);
 
   return (
-    <section className="container container-content">
-      <ContactForm />
-      <div className="pt-3">
-        <h2 className="mb-2">My contacts</h2>
-        <Filter />
+    <section className="container container-content ">
+      <div className="contacts-wrap  shadow-lg">
+        <div className="row ">
+          <div className="col-lg-7 ">
+            <ContactForm />
+          </div>
+          <div className="pt-3 col-lg-5">
+            <h2 className="mb-2">My contacts</h2>
+            <Filter />
 
-        {isLoading && !error ? <Loader /> : <ContactList />}
+            {isLoading && !error ? <Loader /> : <ContactList />}
+          </div>
+        </div>
       </div>
     </section>
   );

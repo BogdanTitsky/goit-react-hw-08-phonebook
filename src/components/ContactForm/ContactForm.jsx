@@ -50,15 +50,15 @@ export const ContactForm = () => {
   };
 
   return (
-    <div className="rounded border border-black pt-4 p-3 ps-5 pe-5">
+    <div className=" contact-form-border rounded  pt-3 p-3 ps-5 pe-5 ps-lg-0 pb-lg-0 h-100">
       <h1 className="text-center mb-4">Phonebook</h1>
 
       <form
-        className="d-flex flex-column align-items-center "
+        className="d-flex flex-column align-items-center  gap-4"
         onSubmit={handleSubmit}
       >
-        <div className="mb-2">
-          <label className="form-label ">
+        <div className="mb-2 w-100">
+          <label className="form-label w-100 ">
             <h2 className="mb-1">Name</h2>
             <input
               type="text"
@@ -72,8 +72,8 @@ export const ContactForm = () => {
             />
           </label>
         </div>
-        <div className="mb-2">
-          <label className="form-label">
+        <div className="mb-2 w-100">
+          <label className="form-label w-100">
             <h2 className="mb-1">Number</h2>
             <input
               type="tel"
@@ -88,8 +88,11 @@ export const ContactForm = () => {
           </label>
         </div>
 
-        <button type="submit" className="btn btn-outline-dark">
-          Add contact
+        <button
+          type="submit"
+          className="btn btn-outline-dark fw-bold ps-4 pe-4"
+        >
+          ADD CONTACT
         </button>
       </form>
     </div>

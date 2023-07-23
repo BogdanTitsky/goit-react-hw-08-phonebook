@@ -21,15 +21,26 @@ h6 {
   font-family: 'DM Mono', monospace;
 }
 
-p {
+p,
+ul {
   margin: 0;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
 }
 
 .container-content {
   padding-top: 30px;
+  padding-bottom: 40px;
 
   @media screen and (min-width: 992px) {
     padding-top: 60px;
+    padding-bottom: 60px;
   }
 }
 
@@ -47,3 +58,38 @@ p {
   flex: 1 1 auto;
 }
 
+.created-by {
+  display: none;
+
+  @media screen and (min-width: 576px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}
+
+.contacts-wrap {
+  @media screen and (min-width: 992px) {
+    padding: 70px;
+    border: 1px solid black;
+    border-radius: 16px;
+  }
+  .contact-form-border {
+    border: 1px solid black;
+    @media screen and (min-width: 992px) {
+      border: none;
+    }
+  }
+}
+
+.main {
+  background: rgb(59, 168, 103);
+  background: linear-gradient(
+    90deg,
+    rgba(59, 168, 103, 1) 0%,
+    rgba(203, 90, 215, 1) 100%
+  );
+  .contacts-wrap {
+    background-color: white;
+  }
+}

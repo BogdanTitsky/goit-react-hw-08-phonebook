@@ -5,7 +5,7 @@ import { selectFilteredContacts } from 'redux/contacts/selectors';
 const ContactList = () => {
   const filteredContacts = useSelector(selectFilteredContacts);
   return (
-    <ul className="border border-black rounded-4 p-0">
+    <ul className="border border-black rounded-4 p-0 bg-light">
       {filteredContacts.map(contact => (
         <ContactItem key={contact.id} contact={contact}></ContactItem>
       ))}

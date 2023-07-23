@@ -50,7 +50,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <div className=" contact-form-border rounded  pt-3 p-3 ps-5 pe-5 ps-lg-0 pb-lg-0 h-100">
+    <div className=" contact-form rounded   pt-3 p-3 ps-5 pe-5 ps-m-0 pb-lg-0 h-100">
       <h1 className="text-center mb-4">Phonebook</h1>
 
       <form
